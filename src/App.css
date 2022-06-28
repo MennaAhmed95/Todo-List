@@ -1,38 +1,51 @@
-.App {
+body {
+  font-family: Lato;
+  font-size: 13px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+h2 {
+  /* padding-left: 30px; */
   text-align: center;
+  font-size: 2em;
+}
+form {
+  text-align: center;
+  padding-left: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.todo_text {
+  margin-right: 8px;
+  padding: 5px;
+  width: 50%;
+  border-radius: 3px;
+}
+form .btn-Add {
+  background: rgb(61, 86, 114);
+  border-radius: 3px;
+  width: 15%;
+  padding: 7px;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+ul {
+  padding: 0px 75px;
+}
+li {
+  list-style: none;
+  /* font-size: 1.2em; */
+}
+li span {
+  font-size: 1.3em;
+  letter-spacing: 1px;
+  padding: 10px;
+}
+span.checked {
+  text-decoration: line-through;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  font-weight: 600;
 }

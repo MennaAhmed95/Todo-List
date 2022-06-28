@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import AddForm from "./components/AddForm";
+import ItemList from "./components/ItemList";
+import { useState } from "react";
 
 function App() {
+  const [items, setItems] = useState([{ id: 0, text: "list1", checked: true }]);
+  const [text, setText] = useState("");
+
+  const handleAdd = (e, text) => {
+    e.preventDefault();
+    console.log(text);
+    if (text) setItems([...items, { id: Date.now(), text, checked: false }]);
+    setText("");
+  };
+
+  const onchange = (event, index) => {
+    const Completed = items.filter((itm) => {
+      if (itm.id === index) {
+        itm.checked = event.target.checked;
+      }
+      return itm;
+    });
+    setItems([...items]);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AddForm handleAdd={handleAdd} text={text} setText={setText} />
+      <ul>
+        {items.map((itm) => (
+          <ItemList key={itm.id} item={itm} onchange={onchange} />
+        ))}
+      </ul>
     </div>
   );
 }
